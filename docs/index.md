@@ -12,10 +12,10 @@ hero:
   actions:
     - theme: brand
       text: 什么是神笔写作？
-      link: /software/
+      link: /software/introduction
     - theme: alt
       text: 神笔AI
-      link: /ai/
+      link: /ai/introduction
     - theme: alt
       text: 更新日志
       link: /changelog/

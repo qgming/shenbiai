@@ -12,6 +12,7 @@ export default defineConfig({
   
   // 主题色配置
   appearance: true,
+  lastUpdated: true,
   
   themeConfig: {
     logo: '/logo.png',
@@ -21,6 +22,7 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: '神笔写作', link: '/software/introduction' },
       { text: '神笔AI', link: '/ai/introduction' },
+      { text: '开发者', link: '/developer' },
       { text: '更新日志', link: '/changelog/' }
     ],
 
