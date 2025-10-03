@@ -9,20 +9,31 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Vue 3 CDN -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-    <!-- Semi Design CSS (替代方案) -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@douyinfe/semi-ui@2.51.0/dist/css/semi.min.css"
-    />
-
-    <!-- Lucide Icons CDN (用于复制图标) -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
+    <!-- 隐藏滚动条但保留滚动功能 -->
     <style>
-      /* 使用Tailwind CSS的默认深色模式 */
+      /* 隐藏滚动条但保留滚动功能 */
+      ::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+        display: none;
+      }
+
+      /* 确保滚动功能正常 */
+      html {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+        overflow: -moz-scrollbars-none; /* Old Firefox */
+      }
+
+      /* 隐藏滚动条但保持滚动 */
+      body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      body::-webkit-scrollbar {
+        display: none;
+      }
 
       .shine-text {
         background: linear-gradient(45deg, #3370ff, #00b42a, #ff7d00, #f53f3f);
@@ -42,472 +53,421 @@
           background-position: 100% 50%;
         }
       }
-
-      .semi-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid transparent;
-        border-radius: 6px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.2s;
-        text-decoration: none;
-      }
-
-      .semi-button-primary {
-        background-color: #3370ff;
-        color: white;
-        border-color: #3370ff;
-      }
-
-      .semi-button-primary:hover {
-        background-color: #295fcc;
-        border-color: #295fcc;
-      }
-
-      .semi-button-light {
-        background-color: #f3f4f6;
-        color: #1f2937;
-        border-color: #e5e7eb;
-      }
-
-      .semi-button-light:hover {
-        background-color: #f9fafb;
-      }
-
-      .semi-button-size-large {
-        padding: 12px 24px;
-        font-size: 16px;
-      }
-
-      .semi-button-with-icon {
-        gap: 8px;
-      }
-
-      .semi-button-with-icon-only {
-        padding: 8px;
-      }
-
-      .semi-layout-content {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-
-      /* 现代化阴影效果 */
-      .card-shadow {
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
-          0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      }
-
-      .card-shadow:hover {
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-          0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        transform: translateY(-2px);
-      }
-
-      /* 渐变背景 */
-      .gradient-bg {
-        background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
-      }
-
-      /* 现代化按钮效果 */
-      .modern-button {
-        background: linear-gradient(135deg, #3370ff 0%, #4a86ff 100%);
-        box-shadow: 0 4px 15px rgba(51, 112, 255, 0.3);
-      }
-
-      .modern-button:hover {
-        background: linear-gradient(135deg, #295fcc 0%, #3a7bff 100%);
-        box-shadow: 0 6px 20px rgba(51, 112, 255, 0.4);
-        transform: translateY(-1px);
-      }
-
-      /* 响应式优化 */
-      @media (max-width: 768px) {
-        .responsive-text {
-          font-size: clamp(1.5rem, 4vw, 2.5rem);
-        }
-
-        .responsive-padding {
-          padding: 1rem;
-        }
-
-        .responsive-gap {
-          gap: 1rem;
-        }
-
-        .card-shadow {
-          box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.1);
-        }
-      }
-
-      @media (max-width: 480px) {
-        .mobile-optimized {
-          padding: 0.5rem;
-        }
-
-        .mobile-stack {
-          flex-direction: column;
-        }
-
-        .mobile-center {
-          text-align: center;
-        }
-      }
-
-      /* 确保 Semi Design 主题变量正常工作 */
-      /* :root {
-        --semi-color-bg-0: #ffffff;
-        --semi-color-bg-1: #f9fafb;
-        --semi-color-bg-2: #f3f4f6;
-        --semi-color-text-0: #1f2937;
-        --semi-color-text-1: #6b7280;
-        --semi-color-text-2: #9ca3af;
-        --semi-color-border: #e5e7eb;
-        --semi-color-fill-0: #f9fafb;
-        --semi-color-fill-1: #f3f4f6;
-      }
-
-      .semi-always-dark {
-        --semi-color-bg-0: #111827;
-        --semi-color-bg-1: #1f2937;
-        --semi-color-bg-2: #374151;
-        --semi-color-text-0: #f9fafb;
-        --semi-color-text-1: #d1d5db;
-        --semi-color-text-2: #9ca3af;
-        --semi-color-border: #374151;
-        --semi-color-fill-0: #1f2937;
-        --semi-color-fill-1: #374151;
-      } */
-
-      /* 确保背景颜色正确应用 */
-      .bg-semi-color-bg-0 {
-        background-color: var(--semi-color-bg-0);
-      }
-
-      .bg-semi-color-bg-1 {
-        background-color: var(--semi-color-bg-1);
-      }
-
-      .text-semi-color-text-0 {
-        color: var(--semi-color-text-0);
-      }
-
-      .text-semi-color-text-1 {
-        color: var(--semi-color-text-1);
-      }
-
-      .text-semi-color-text-2 {
-        color: var(--semi-color-text-2);
-      }
-
-      .border-semi-color-border {
-        border-color: var(--semi-color-border);
-      }
-
-      .bg-semi-color-fill-0 {
-        background-color: var(--semi-color-fill-0);
-      }
-
-      .bg-semi-color-fill-1 {
-        background-color: var(--semi-color-fill-1);
-      }
     </style>
+
+    <!-- Vue 3 CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Lucide Icons CDN (用于复制图标) -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   </head>
-  <body class="bg-semi-color-bg-0 transition-colors duration-300">
+  <body class="bg-white dark:bg-gray-950 transition-colors duration-300">
     <div id="app">
-      <main
-        class="semi-layout-content"
-        style="flex: 1 0 auto; overflow-y: auto; padding: 0; position: relative"
-      >
+      <!-- 顶部横条 -->
+      <div
+        class="h-16 bg-gray-500/50 w-full fixed top-0 left-0 z-50 flex items-center justify-center backdrop-filter backdrop-blur-lg"
+      ></div>
+
+      <main class="min-h-screen pt-16">
         <div class="w-full overflow-x-hidden">
-          <div class="w-full overflow-x-hidden">
-            <!-- 头部区域 -->
-            <div class="w-full pt-24 bg-semi-color-bg-0">
+          <!-- 头部区域 -->
+          <div class="w-full pt-8">
+            <div
+              class="flex items-center justify-center h-full px-4 py-24 md:py-28 lg:py-32"
+            >
               <div
-                class="flex items-center justify-center h-full px-4 py-24 md:py-28 lg:py-32"
+                class="flex flex-col items-center justify-center text-center max-w-4xl mx-auto"
               >
                 <div
-                  class="flex flex-col items-center justify-center text-center max-w-4xl mx-auto"
+                  class="flex flex-col items-center justify-center mb-8 md:mb-10"
                 >
                   <div
-                    class="flex flex-col items-center justify-center mb-8 md:mb-10"
+                    class="flex items-center justify-center gap-4 md:gap-6 mb-6"
                   >
-                    <div
-                      class="flex items-center justify-center gap-4 md:gap-6 mb-6"
+                    <img
+                      src="./logo.png"
+                      alt="神笔AI Logo"
+                      class="h-12 md:h-16 lg:h-18 w-auto object-contain"
+                    />
+                    <h1
+                      class="text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight md:tracking-tighter text-gray-900 dark:text-white h-12 md:h-16 lg:h-18 flex items-center"
                     >
-                      <img
-                        src="./logo.png"
-                        alt="神笔AI Logo"
-                        class="h-12 md:h-16 lg:h-18 w-auto object-contain"
-                      />
-                      <h1
-                        class="text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight md:tracking-tighter text-semi-color-text-0 h-12 md:h-16 lg:h-18 flex items-center"
-                      >
-                        神笔 AI
-                      </h1>
-                    </div>
-                    <h2
-                      class="text-6xl md:text-7xl lg:text-8xl pb-1 font-black leading-tight tracking-tight md:tracking-tighter shine-text"
+                      神笔 AI
+                    </h1>
+                  </div>
+                  <h2
+                    class="text-6xl md:text-7xl lg:text-8xl pb-1 font-black leading-tight tracking-tight md:tracking-tighter"
+                  >
+                    <span
+                      class="bg-gradient-to-r from-blue-600 via-green-500 to-orange-500 bg-clip-text text-transparent shine-text"
                     >
                       一个接口，无限创作
-                    </h2>
-                    <p
-                      class="text-lg md:text-xl lg:text-2xl mt-6 md:mt-8 max-w-2xl leading-relaxed text-semi-color-text-1"
-                    >
-                      专业，高速，稳定，专为神笔写作设计
-                    </p>
-                    <div class="flex items-center justify-center p-6">
-                      <div
-                        class="inline-flex items-center rounded-2xl px-6 py-4 backdrop-blur-sm bg-semi-color-fill-0 border border-semi-color-border shadow-lg"
-                      >
-                        <span
-                          class="font-mono text-base md:text-lg font-medium text-semi-color-text-0"
-                          >https://ai.qgming.com/v1</span
-                        >
-                        <button
-                          class="ml-6 semi-button semi-button-primary !rounded-xl semi-button-with-icon semi-button-with-icon-only p-3 flex-shrink-0 hover:scale-105 transition-transform"
-                          type="button"
-                          aria-disabled="false"
-                          title="复制"
-                          @click="copyApiUrl"
-                        >
-                          <i data-lucide="copy" class="w-5 h-5"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="flex flex-row gap-4 md:gap-6 justify-center items-center mt-6 md:mt-8 mobile-stack responsive-gap"
+                    </span>
+                  </h2>
+                  <p
+                    class="text-lg md:text-xl lg:text-2xl mt-6 md:mt-8 max-w-2xl leading-relaxed text-gray-700 dark:text-gray-300"
                   >
-                    <a href="https://ai.qgming.com/console">
+                    专业，高速，稳定，专为神笔写作设计
+                  </p>
+                  <div
+                    class="flex items-center justify-center p-6 mt-6 md:mt-8"
+                  >
+                    <div
+                      class="inline-flex items-center rounded-2xl px-6 py-4 backdrop-blur-sm bg-white/80 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-600 shadow-lg"
+                    >
+                      <span
+                        class="font-mono text-base md:text-lg font-medium text-gray-900 dark:text-white"
+                        >https://ai.qgming.com/v1</span
+                      >
                       <button
-                        class="semi-button semi-button-primary semi-button-size-large !rounded-2xl px-6 py-3 md:px-8 md:py-4 flex items-center justify-center text-base md:text-lg font-semibold hover:shadow-lg transition-all duration-300"
+                        class="ml-6 inline-flex items-center justify-center rounded-xl p-3 flex-shrink-0 hover:scale-105 transition-transform bg-blue-600 hover:bg-blue-700 text-white"
                         type="button"
                         aria-disabled="false"
+                        title="复制"
+                        @click="copyApiUrl"
                       >
-                        <i
-                          data-lucide="rocket"
-                          class="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3"
-                        ></i>
-                        <span class="semi-button-content">开始使用</span>
+                        <i data-lucide="copy" class="w-5 h-5"></i>
                       </button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 价格对比卡片 -->
-            <div class="w-full bg-semi-color-bg-0">
-              <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center py-20">
-                  <h2 class="text-5xl font-black mb-6 text-semi-color-text-0">
-                    价格对比
-                  </h2>
-                  <p
-                    class="text-2xl max-w-3xl mx-auto leading-relaxed text-semi-color-text-1"
-                  >
-                    神笔AI中转API，自动负载，稳定性更高，极具性价比
-                  </p>
-                </div>
-                <div class="flex flex-col lg:flex-row gap-10 max-w-5xl mx-auto">
-                  <!-- 左侧：Gemini模型 -->
-                  <div
-                    class="flex-1 rounded-2xl p-10 card-shadow transition-all duration-300 hover:card-shadow bg-semi-color-bg-1 border border-semi-color-border"
-                  >
-                    <div class="text-center mb-10">
-                      <h3
-                        class="text-3xl font-black mb-4 text-semi-color-text-0"
-                      >
-                        Gemini模型
-                      </h3>
-                      <div class="text-base font-medium text-semi-color-text-2">
-                        官方价格
-                      </div>
-                    </div>
-                    <div class="space-y-6">
-                      <div
-                        class="flex justify-between items-center py-5 px-4 rounded-xl bg-semi-color-fill-0 border border-semi-color-border"
-                      >
-                        <span
-                          class="font-semibold text-xl text-semi-color-text-0"
-                          >Gemini 2.5 Pro</span
-                        >
-                        <span class="font-bold text-xl text-red-500"
-                          >$15/百万token</span
-                        >
-                      </div>
-                      <div
-                        class="flex justify-between items-center py-5 px-4 rounded-xl bg-semi-color-fill-0 border border-semi-color-border"
-                      >
-                        <span
-                          class="font-semibold text-xl text-semi-color-text-0"
-                          >Gemini 2.5 Flash</span
-                        >
-                        <span class="font-bold text-xl text-red-500"
-                          >$7.5/百万token</span
-                        >
-                      </div>
                     </div>
                   </div>
-                  <!-- 右侧：神笔AI模型 -->
-                  <div
-                    class="flex-1 rounded-2xl p-10 relative card-shadow transition-all duration-300 hover:card-shadow bg-semi-color-bg-1 border-2 border-green-500"
-                  >
-                    <div
-                      class="absolute -top-4 -right-4 px-6 py-3 rounded-full text-base font-black z-10 bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg"
-                    >
-                      立省80%
-                    </div>
-                    <div class="text-center mb-10">
-                      <h3
-                        class="text-3xl font-black mb-4 text-semi-color-text-0"
-                      >
-                        神笔AI模型
-                      </h3>
-                      <div class="text-base font-medium text-semi-color-text-2">
-                        中转API价格
-                      </div>
-                    </div>
-                    <div class="space-y-6">
-                      <div
-                        class="flex justify-between items-center py-5 px-4 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700"
-                      >
-                        <span
-                          class="font-semibold text-xl text-semi-color-text-0"
-                          >神笔写作</span
-                        >
-                        <span
-                          class="font-bold text-xl text-green-600 dark:text-green-400"
-                          >$3/百万token</span
-                        >
-                      </div>
-                      <div
-                        class="flex justify-between items-center py-5 px-4 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700"
-                      >
-                        <span
-                          class="font-semibold text-xl text-semi-color-text-0"
-                          >神笔章节</span
-                        >
-                        <span
-                          class="font-bold text-xl text-green-600 dark:text-green-400"
-                          >$1.5/百万token</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- 节省说明 -->
-                <div class="text-center py-20 max-w-3xl mx-auto">
-                  <div
-                    class="rounded-2xl p-8 backdrop-blur-sm bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 border-2 border-orange-500 shadow-xl"
-                  >
-                    <p class="text-xl leading-relaxed text-semi-color-text-1">
-                      <span class="font-black text-2xl text-orange-500"
-                        >相比官方价格，神笔AI可为您节省高达80%的成本！</span
-                      ><br class="hidden md:block" />
-                      中转API自动负载均衡，稳定性更高，专为神笔写作优化。
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 优势卡片 -->
-            <div class="w-full py-24 bg-semi-color-bg-0">
-              <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center py-20">
-                  <h2 class="text-5xl font-black mb-8 text-semi-color-text-0">
-                    核心优势
-                  </h2>
-                  <p
-                    class="text-2xl max-w-3xl mx-auto leading-relaxed text-semi-color-text-1"
-                  >
-                    专为神笔写作优化，提供更佳的创作体验
-                  </p>
                 </div>
                 <div
-                  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"
+                  class="flex flex-row gap-4 md:gap-6 justify-center items-center mt-3 md:mt-4"
                 >
-                  <!-- 优势卡片1 -->
-                  <div
-                    class="rounded-2xl p-8 text-center card-shadow transition-all duration-300 hover:card-shadow bg-semi-color-bg-1 border border-semi-color-border"
-                  >
-                    <div
-                      class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20"
-                    >
-                      <i data-lucide="zap" class="w-8 h-8 text-blue-500"></i>
-                    </div>
-                    <h3 class="text-2xl font-black mb-6 text-semi-color-text-0">
-                      自动负载均衡
-                    </h3>
-                    <p class="text-lg leading-relaxed text-semi-color-text-1">
-                      智能分配请求，确保服务稳定运行
-                    </p>
-                  </div>
-                  <!-- 优势卡片2 -->
-                  <div
-                    class="rounded-2xl p-8 text-center card-shadow transition-all duration-300 hover:card-shadow bg-semi-color-bg-1 border border-semi-color-border"
-                  >
-                    <div
-                      class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20"
+                  <a href="https://ai.qgming.com/console">
+                    <button
+                      class="inline-flex items-center justify-center rounded-2xl px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold hover:shadow-lg transition-all duration-300 bg-blue-600 hover:bg-blue-700 text-white"
+                      type="button"
+                      aria-disabled="false"
                     >
                       <i
-                        data-lucide="shield-check"
-                        class="w-8 h-8 text-green-500"
+                        data-lucide="rocket"
+                        class="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3"
                       ></i>
-                    </div>
-                    <h3 class="text-2xl font-black mb-6 text-semi-color-text-0">
-                      超高稳定性
-                    </h3>
-                    <p class="text-lg leading-relaxed text-semi-color-text-1">
-                      99.9%可用性保障，创作不中断
-                    </p>
-                  </div>
-                  <!-- 优势卡片3 -->
-                  <div
-                    class="rounded-2xl p-8 text-center card-shadow transition-all duration-300 hover:card-shadow bg-semi-color-bg-1 border border-semi-color-border"
-                  >
-                    <div
-                      class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20"
+                      <span>开始使用</span>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 价格对比卡片 -->
+          <div class="w-full">
+            <div class="max-w-6xl mx-auto px-6">
+              <div class="text-center py-20">
+                <h2
+                  class="text-5xl font-black mb-6 text-gray-900 dark:text-white"
+                >
+                  价格对比
+                </h2>
+                <p
+                  class="text-2xl max-w-3xl mx-auto leading-relaxed text-gray-700 dark:text-gray-300"
+                >
+                  神笔AI中转API，自动负载，稳定性更高，极具性价比
+                </p>
+              </div>
+              <div class="flex flex-col lg:flex-row gap-10 max-w-5xl mx-auto">
+                <!-- 左侧：Gemini模型 -->
+                <div
+                  class="flex-1 rounded-2xl p-10 transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700"
+                >
+                  <div class="text-center mb-10">
+                    <h3
+                      class="text-3xl font-black mb-4 text-gray-900 dark:text-white"
                     >
-                      <i
-                        data-lucide="dollar-sign"
-                        class="w-8 h-8 text-orange-500"
-                      ></i>
-                    </div>
-                    <h3 class="text-2xl font-black mb-6 text-semi-color-text-0">
-                      极致性价比
+                      Gemini模型
                     </h3>
-                    <p class="text-lg leading-relaxed text-semi-color-text-1">
-                      相比官方价格，最高节省80%成本
-                    </p>
-                  </div>
-                  <!-- 优势卡片4 -->
-                  <div
-                    class="rounded-2xl p-8 text-center card-shadow transition-all duration-300 hover:card-shadow bg-semi-color-bg-1 border border-semi-color-border"
-                  >
                     <div
-                      class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-cyan-50 to-cyan-100 dark:from-cyan-900/20 dark:to-cyan-800/20"
+                      class="text-base font-medium text-gray-600 dark:text-gray-400"
                     >
-                      <i data-lucide="edit-3" class="w-8 h-8 text-cyan-500"></i>
+                      官方价格
                     </div>
-                    <h3 class="text-2xl font-black mb-6 text-semi-color-text-0">
-                      专属优化
-                    </h3>
-                    <p class="text-lg leading-relaxed text-semi-color-text-1">
-                      神笔写作软件专属调试，写作效果更佳
-                    </p>
                   </div>
+                  <div class="space-y-6">
+                    <div
+                      class="flex justify-between items-center py-5 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-600"
+                    >
+                      <span
+                        class="font-semibold text-xl text-gray-900 dark:text-white"
+                        >Gemini 2.5 Pro</span
+                      >
+                      <span class="font-bold text-xl text-red-500"
+                        >$15/百万token</span
+                      >
+                    </div>
+                    <div
+                      class="flex justify-between items-center py-5 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-600"
+                    >
+                      <span
+                        class="font-semibold text-xl text-gray-900 dark:text-white"
+                        >Gemini 2.5 Flash</span
+                      >
+                      <span class="font-bold text-xl text-red-500"
+                        >$7.5/百万token</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- 右侧：神笔AI模型 -->
+                <div
+                  class="flex-1 rounded-2xl p-10 relative transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-900 border-2 border-green-500"
+                >
+                  <div
+                    class="absolute -top-4 -right-4 px-6 py-3 rounded-full text-base font-black z-10 bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg"
+                  >
+                    立省80%
+                  </div>
+                  <div class="text-center mb-10">
+                    <h3
+                      class="text-3xl font-black mb-4 text-gray-900 dark:text-white"
+                    >
+                      神笔AI模型
+                    </h3>
+                    <div
+                      class="text-base font-medium text-gray-600 dark:text-gray-400"
+                    >
+                      中转API价格
+                    </div>
+                  </div>
+                  <div class="space-y-6">
+                    <div
+                      class="flex justify-between items-center py-5 px-4 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700"
+                    >
+                      <span
+                        class="font-semibold text-xl text-gray-900 dark:text-white"
+                        >神笔写作</span
+                      >
+                      <span
+                        class="font-bold text-xl text-green-600 dark:text-green-400"
+                        >$3/百万token</span
+                      >
+                    </div>
+                    <div
+                      class="flex justify-between items-center py-5 px-4 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700"
+                    >
+                      <span
+                        class="font-semibold text-xl text-gray-900 dark:text-white"
+                        >神笔章节</span
+                      >
+                      <span
+                        class="font-bold text-xl text-green-600 dark:text-green-400"
+                        >$1.5/百万token</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 节省说明 -->
+              <div class="text-center py-20 max-w-3xl mx-auto">
+                <div
+                  class="rounded-2xl p-8 backdrop-blur-sm bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 border-2 border-orange-500 shadow-xl"
+                >
+                  <p
+                    class="text-xl leading-relaxed text-gray-700 dark:text-gray-300"
+                  >
+                    <span class="font-black text-2xl text-orange-500"
+                      >相比官方价格，神笔AI可为您节省高达80%的成本！</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 优势卡片 -->
+          <div class="w-full py-24">
+            <div class="max-w-6xl mx-auto px-6">
+              <div class="text-center py-20">
+                <h2
+                  class="text-5xl font-black mb-8 text-gray-900 dark:text-white"
+                >
+                  核心优势
+                </h2>
+                <p
+                  class="text-2xl max-w-3xl mx-auto leading-relaxed text-gray-700 dark:text-gray-300"
+                >
+                  专为神笔写作优化，提供更佳的创作体验
+                </p>
+              </div>
+              <div
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"
+              >
+                <!-- 优势卡片1 -->
+                <div
+                  class="rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700"
+                >
+                  <div
+                    class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20"
+                  >
+                    <i data-lucide="zap" class="w-8 h-8 text-blue-500"></i>
+                  </div>
+                  <h3
+                    class="text-2xl font-black mb-6 text-gray-900 dark:text-white"
+                  >
+                    自动负载均衡
+                  </h3>
+                  <p
+                    class="text-lg leading-relaxed text-gray-700 dark:text-gray-300"
+                  >
+                    智能分配请求，确保服务稳定运行
+                  </p>
+                </div>
+                <!-- 优势卡片2 -->
+                <div
+                  class="rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700"
+                >
+                  <div
+                    class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20"
+                  >
+                    <i
+                      data-lucide="shield-check"
+                      class="w-8 h-8 text-green-500"
+                    ></i>
+                  </div>
+                  <h3
+                    class="text-2xl font-black mb-6 text-gray-900 dark:text-white"
+                  >
+                    超高稳定性
+                  </h3>
+                  <p
+                    class="text-lg leading-relaxed text-gray-700 dark:text-gray-300"
+                  >
+                    99.9%可用性保障，创作不中断
+                  </p>
+                </div>
+                <!-- 优势卡片3 -->
+                <div
+                  class="rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700"
+                >
+                  <div
+                    class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20"
+                  >
+                    <i
+                      data-lucide="dollar-sign"
+                      class="w-8 h-8 text-orange-500"
+                    ></i>
+                  </div>
+                  <h3
+                    class="text-2xl font-black mb-6 text-gray-900 dark:text-white"
+                  >
+                    极致性价比
+                  </h3>
+                  <p
+                    class="text-lg leading-relaxed text-gray-700 dark:text-gray-300"
+                  >
+                    相比官方价格，最高节省80%成本
+                  </p>
+                </div>
+                <!-- 优势卡片4 -->
+                <div
+                  class="rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700"
+                >
+                  <div
+                    class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-cyan-50 to-cyan-100 dark:from-cyan-900/20 dark:to-cyan-800/20"
+                  >
+                    <i data-lucide="edit-3" class="w-8 h-8 text-cyan-500"></i>
+                  </div>
+                  <h3
+                    class="text-2xl font-black mb-6 text-gray-900 dark:text-white"
+                  >
+                    专属优化
+                  </h3>
+                  <p
+                    class="text-lg leading-relaxed text-gray-700 dark:text-gray-300"
+                  >
+                    神笔写作软件专属调试，写作效果更佳
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </main>
+      <!-- 页脚 -->
+      <footer
+        class="bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 py-12"
+      >
+        <div class="max-w-6xl mx-auto px-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <!-- 品牌信息 -->
+            <div class="text-center md:text-left">
+              <div
+                class="flex items-center justify-center md:justify-start mb-4"
+              >
+                <img
+                  src="./logo.png"
+                  alt="神笔AI Logo"
+                  class="h-10 w-auto object-contain mr-3"
+                />
+                <h3 class="text-2xl font-black text-gray-900 dark:text-white">
+                  神笔AI
+                </h3>
+              </div>
+              <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                专业，高速，稳定，专为神笔写作设计
+              </p>
+            </div>
+
+            <!-- 快速链接 -->
+            <div class="text-center">
+              <h4
+                class="text-lg font-semibold text-gray-900 dark:text-white mb-4"
+              >
+                快速链接
+              </h4>
+              <div class="space-y-2">
+                <a
+                  href="https://shenbi.qgming.com/"
+                  target="_blank"
+                  class="block text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                >
+                  神笔写作
+                </a>
+                <a
+                  href="https://ai.qgming.com/v1"
+                  target="_blank"
+                  class="block text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                >
+                  API文档
+                </a>
+              </div>
+            </div>
+
+            <!-- 技术支持 -->
+            <div class="text-center md:text-right">
+              <h4
+                class="text-lg font-semibold text-gray-900 dark:text-white mb-4"
+              >
+                技术支持
+              </h4>
+              <div class="space-y-2">
+                <a
+                  href="https://github.com/QuantumNous/new-api"
+                  target="_blank"
+                  class="block text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-green-400 transition-colors"
+                >
+                  NewAPI
+                </a>
+                <a
+                  href="https://github.com/songquanpeng/one-api"
+                  target="_blank"
+                  class="block text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-green-400 transition-colors"
+                >
+                  OneAPI
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 版权信息 -->
+          <div class="pt-8 text-center">
+            <p class="text-gray-600 dark:text-gray-500 text-sm">
+              © 2025 QGMING. 保留所有权利。
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
 
     <script type="module">
@@ -523,78 +483,55 @@
           // 初始化Lucide图标
           lucide.createIcons();
 
-          // 检测并设置主题
-          this.setupTheme();
+          // 检测是否嵌入在其他软件中
+          this.detectEmbeddedEnvironment();
+
+          // 检查本地存储的主题偏好
+          const savedTheme = localStorage.getItem("theme");
+          if (
+            savedTheme === "dark" ||
+            (!savedTheme &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches)
+          ) {
+            this.enableDarkMode();
+          }
         },
         methods: {
-          setupTheme() {
+          detectEmbeddedEnvironment() {
             // 检测是否在iframe中（嵌入其他软件）
             if (window.self !== window.top) {
-              this.setupEmbeddedTheme();
-            } else {
-              // 独立运行时使用系统主题偏好
-              this.setupStandaloneTheme();
+              // 在iframe中，尝试跟随父窗口的深色模式
+              this.setupEmbeddedDarkMode();
             }
           },
 
-          setupEmbeddedTheme() {
-            // 在嵌入环境中，尝试多种方式检测主题
-            this.tryDetectParentTheme();
-
-            // 监听可能的主题变化
+          setupEmbeddedDarkMode() {
+            // 监听父窗口的深色模式变化
             window.addEventListener("message", (event) => {
-              if (event.data && event.data.theme) {
-                this.applyTheme(event.data.theme);
+              if (event.data && event.data.type === "themeChange") {
+                if (event.data.theme === "dark") {
+                  this.enableDarkMode();
+                } else {
+                  this.disableDarkMode();
+                }
               }
             });
 
-            // 向父窗口请求主题信息
+            // 向父窗口请求当前主题
             if (window.parent && window.parent !== window) {
               window.parent.postMessage({ type: "getTheme" }, "*");
             }
           },
 
-          setupStandaloneTheme() {
-            // 独立运行时使用系统主题偏好
-            const prefersDark = window.matchMedia(
-              "(prefers-color-scheme: dark)"
-            ).matches;
-            this.applyTheme(prefersDark ? "dark" : "light");
+          enableDarkMode() {
+            document.documentElement.classList.add("dark");
+            document.documentElement.classList.add("embedded-dark");
+            localStorage.setItem("theme", "dark");
           },
-
-          tryDetectParentTheme() {
-            // 方法1: 尝试检测父窗口的类名
-            try {
-              const parentDoc = window.parent.document.documentElement;
-              if (
-                parentDoc.classList.contains("dark") ||
-                parentDoc.classList.contains("semi-always-dark")
-              ) {
-                this.applyTheme("dark");
-                return;
-              }
-            } catch (e) {
-              // 跨域限制，继续尝试其他方法
-            }
-
-            // 方法2: 通过URL参数
-            const urlParams = new URLSearchParams(window.location.search);
-            const theme = urlParams.get("theme");
-            if (theme) {
-              this.applyTheme(theme);
-              return;
-            }
-
-            // 方法3: 默认使用系统主题
-            this.setupStandaloneTheme();
-          },
-
-          applyTheme(theme) {
-            if (theme === "dark") {
-              document.documentElement.classList.add("semi-always-dark");
-            } else {
-              document.documentElement.classList.remove("semi-always-dark");
-            }
+          disableDarkMode() {
+            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.remove("embedded-dark");
+            localStorage.setItem("theme", "light");
           },
           async copyApiUrl() {
             try {
