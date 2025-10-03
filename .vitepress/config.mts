@@ -19,32 +19,43 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
-      { text: '神笔写作', link: '/software/' },
-      { text: '神笔AI', link: '/ai/' },
+      { text: '神笔写作', link: '/software/introduction' },
+      { text: '神笔AI', link: '/ai/introduction' },
       { text: '更新日志', link: '/changelog/' }
     ],
 
     sidebar: {
       '/software/': [
         {
-          text: '神笔写作',
+          text: '什么是神笔写作',
           items: [
-            { text: '软件安装', link: '/software/#软件安装' },
-            { text: '基本功能', link: '/software/#基本功能' },
-            { text: '高级功能', link: '/software/#高级功能' },
-            { text: '常见问题', link: '/software/#常见问题' }
+            { text: '产品概述', link: '/software/introduction' }
+          ]
+        },
+        {
+          text: '基础配置',
+          items: [
+            { text: '软件安装与配置', link: '/software/basic-config' }
+          ]
+        },
+        {
+          text: '写作教程',
+          items: [
+            { text: '使用教程', link: '/software/tutorial' }
           ]
         }
       ],
       '/ai/': [
         {
-          text: '神笔AI',
+          text: '什么是神笔AI',
           items: [
-            { text: 'API概述', link: '/ai/#api概述' },
-            { text: '快速开始', link: '/ai/#快速开始' },
-            { text: 'API文档', link: '/ai/#api文档' },
-            { text: '使用示例', link: '/ai/#使用示例' },
-            { text: '常见问题', link: '/ai/#常见问题' }
+            { text: '服务介绍', link: '/ai/introduction' }
+          ]
+        },
+        {
+          text: '使用教程',
+          items: [
+            { text: '快速开始', link: '/ai/tutorial' }
           ]
         }
       ],
