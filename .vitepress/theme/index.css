@@ -1,0 +1,47 @@
+/**
+ * 神笔写作主题样式
+ * 主题色: #0078d4
+ */
+
+:root {
+  --vp-c-brand: #0078d4;
+  --vp-c-brand-light: #0086f0;
+  --vp-c-brand-lighter: #0094ff;
+  --vp-c-brand-dark: #0066b3;
+  --vp-c-brand-darker: #005499;
+
+  /* 渐变背景色 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(
+    135deg,
+    #0078d4 0%,
+    #00a2ff 100%
+  );
+
+  /* 按钮颜色 */
+  --vp-button-brand-border: var(--vp-c-brand);
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-hover-border: var(--vp-c-brand-light);
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-light);
+  --vp-button-brand-active-border: var(--vp-c-brand-dark);
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: var(--vp-c-brand-dark);
+}
+
+/* 代码块样式 */
+.vp-doc div[class*="language-"] {
+  border-radius: 8px;
+}
+
+/* 链接样式 */
+.vp-doc a {
+  color: var(--vp-c-brand);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-brand-light);
+  text-decoration: underline;
+}
