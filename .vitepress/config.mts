@@ -19,15 +19,15 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
-      { text: '软件教程', link: '/software/' },
-      { text: 'API教程', link: '/ai/' },
+      { text: '神笔写作', link: '/software/' },
+      { text: '神笔AI', link: '/ai/' },
       { text: '更新日志', link: '/changelog/' }
     ],
 
     sidebar: {
       '/software/': [
         {
-          text: '神笔写作软件使用教程',
+          text: '神笔写作',
           items: [
             { text: '软件安装', link: '/software/#软件安装' },
             { text: '基本功能', link: '/software/#基本功能' },
@@ -38,7 +38,7 @@ export default defineConfig({
       ],
       '/ai/': [
         {
-          text: '神笔AI（API中转服务）使用教程',
+          text: '神笔AI',
           items: [
             { text: 'API概述', link: '/ai/#api概述' },
             { text: '快速开始', link: '/ai/#快速开始' },
@@ -50,7 +50,7 @@ export default defineConfig({
       ],
       '/changelog/': [
         {
-          text: '神笔写作更新日志',
+          text: '更新日志',
           items: [
             { text: '最新版本', link: '/changelog/#最新版本' },
             { text: '历史版本', link: '/changelog/#历史版本' },
