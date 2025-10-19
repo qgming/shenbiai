@@ -35,6 +35,146 @@
         display: none;
       }
 
+      /* 顶部横条样式 - 高级灰背景 */
+      .adaptive-header {
+        background: rgba(120, 130, 150, 0.6);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(100, 110, 130, 0.5);
+      }
+
+      .dark .adaptive-header {
+        background: rgba(80, 90, 110, 0.6);
+        border-bottom: 1px solid rgba(100, 110, 130, 0.5);
+      }
+
+      .embedded-dark .adaptive-header {
+        background: rgba(80, 90, 110, 0.6) !important;
+        border-bottom: 1px solid rgba(100, 110, 130, 0.5) !important;
+      }
+
+      /* 增强的视觉效果 */
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+
+      .dark .glass-effect {
+        background: rgba(17, 24, 39, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+
+      /* 增强的卡片悬停效果 */
+      .card-hover {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .dark .card-hover:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      /* 优化的渐变背景 */
+      .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background-size: 200% 200%;
+        animation: gradientShift 6s ease infinite;
+      }
+
+      @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+
+      /* 增强的按钮效果 */
+      .btn-enhanced {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .btn-enhanced::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+      }
+
+      .btn-enhanced:hover::before {
+        left: 100%;
+      }
+
+      /* 优化的价格标签 */
+      .price-tag {
+        position: relative;
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: -0.025em;
+      }
+
+      /* 改进的图标容器 */
+      .icon-container {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .icon-container::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        transform: translate(-50%, -50%);
+        transition: all 0.3s ease;
+      }
+
+      .icon-container:hover::before {
+        width: 100%;
+        height: 100%;
+      }
+
+
+      /* 平滑滚动 */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* 增强的选择文本样式 */
+      ::selection {
+        background: rgba(59, 130, 246, 0.3);
+        color: inherit;
+      }
+
+      /* 改进的焦点样式 */
+      *:focus {
+        outline: 2px solid #3b82f6;
+        outline-offset: 2px;
+      }
+
+      /* 增强的移动端触摸效果 */
+      @media (hover: none) and (pointer: coarse) {
+        .card-hover:active {
+          transform: scale(0.98);
+        }
+      }
+
       .shine-text {
         background: linear-gradient(45deg, #3370ff, #00b42a, #ff7d00, #f53f3f);
         background-size: 400% 400%;
@@ -61,11 +201,11 @@
     <!-- Lucide Icons CDN (用于复制图标) -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   </head>
-  <body class="bg-white dark:bg-gray-950 transition-colors duration-300">
+  <body class="bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
     <div id="app">
       <!-- 顶部横条 -->
       <div
-        class="h-16 bg-gray-500/50 w-full fixed top-0 left-0 z-50 flex items-center justify-center backdrop-filter backdrop-blur-lg"
+        class="adaptive-header h-16 w-full fixed top-0 left-0 z-50 backdrop-blur-lg"
       ></div>
 
       <main class="min-h-screen pt-16">
@@ -113,14 +253,14 @@
                     class="flex items-center justify-center p-6 mt-6 md:mt-8"
                   >
                     <div
-                      class="inline-flex items-center rounded-2xl px-6 py-4 backdrop-blur-sm bg-white/80 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-600 shadow-lg"
+                      class="glass-effect inline-flex items-center rounded-2xl px-6 py-4"
                     >
                       <span
                         class="font-mono text-base md:text-lg font-medium text-gray-900 dark:text-white"
-                        >https://ai.qgming.com/v1</span
+                        >{{ apiUrl }}</span
                       >
                       <button
-                        class="ml-6 inline-flex items-center justify-center rounded-xl p-3 flex-shrink-0 hover:scale-105 transition-transform bg-blue-600 hover:bg-blue-700 text-white"
+                        class="ml-6 btn-enhanced inline-flex items-center justify-center rounded-xl p-3 flex-shrink-0 hover:scale-105 transition-all bg-blue-600 hover:bg-blue-700 text-white shadow-lg"
                         type="button"
                         aria-disabled="false"
                         title="复制"
@@ -136,7 +276,7 @@
                 >
                   <a href="https://ai.qgming.com/console">
                     <button
-                      class="inline-flex items-center justify-center rounded-2xl px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold hover:shadow-lg transition-all duration-300 bg-blue-600 hover:bg-blue-700 text-white"
+                      class="btn-enhanced inline-flex items-center justify-center rounded-2xl px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold hover:shadow-lg transition-all duration-300 bg-blue-600 hover:bg-blue-700 text-white shadow-xl"
                       type="button"
                       aria-disabled="false"
                     >
@@ -167,112 +307,99 @@
                   神笔AI中转API，自动负载，稳定性更高，极具性价比
                 </p>
               </div>
-              <div class="flex flex-col lg:flex-row gap-10 max-w-5xl mx-auto">
-                <!-- 左侧：Gemini模型 -->
+              <div class="flex flex-col lg:flex-row gap-10 max-w-7xl mx-auto">
+                <!-- 左侧：官方价格 -->
                 <div
-                  class="flex-1 rounded-2xl p-10 transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700"
+                  class="card-hover flex-1 rounded-2xl p-6 transition-all duration-300 glass-effect border-2 border-red-200 dark:border-red-700"
                 >
-                  <div class="text-center mb-10">
+                  <div class="text-center mb-6">
                     <h3
-                      class="text-3xl font-black mb-4 text-gray-900 dark:text-white"
-                    >
-                      Gemini模型
-                    </h3>
-                    <div
-                      class="text-base font-medium text-gray-600 dark:text-gray-400"
+                      class="text-2xl font-black mb-2 text-red-600 dark:text-red-400"
                     >
                       官方价格
-                    </div>
-                  </div>
-                  <div class="space-y-6">
-                    <div
-                      class="flex justify-between items-center py-5 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-600"
-                    >
-                      <span
-                        class="font-semibold text-xl text-gray-900 dark:text-white"
-                        >Gemini 2.5 Pro</span
-                      >
-                      <span class="font-bold text-xl text-red-500"
-                        >$15/百万token</span
-                      >
-                    </div>
-                    <div
-                      class="flex justify-between items-center py-5 px-4 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-600"
-                    >
-                      <span
-                        class="font-semibold text-xl text-gray-900 dark:text-white"
-                        >Gemini 2.5 Flash</span
-                      >
-                      <span class="font-bold text-xl text-red-500"
-                        >$7.5/百万token</span
-                      >
-                    </div>
-                  </div>
-                </div>
-                <!-- 右侧：神笔AI模型 -->
-                <div
-                  class="flex-1 rounded-2xl p-10 relative transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-900 border-2 border-green-500"
-                >
-                  <div
-                    class="absolute -top-4 -right-4 px-6 py-3 rounded-full text-base font-black z-10 bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg"
-                  >
-                    立省80%
-                  </div>
-                  <div class="text-center mb-10">
-                    <h3
-                      class="text-3xl font-black mb-4 text-gray-900 dark:text-white"
-                    >
-                      神笔AI模型
                     </h3>
                     <div
-                      class="text-base font-medium text-gray-600 dark:text-gray-400"
+                      class="text-sm font-medium text-red-600 dark:text-red-400"
                     >
-                      中转API价格
+                      原始定价
                     </div>
                   </div>
-                  <div class="space-y-6">
+                  <div class="space-y-3">
                     <div
-                      class="flex justify-between items-center py-5 px-4 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700"
+                      v-for="model in modelData"
+                      :key="model.name"
+                      class="py-3 px-4 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700"
                     >
-                      <span
-                        class="font-semibold text-xl text-gray-900 dark:text-white"
-                        >神笔写作</span
-                      >
-                      <span
-                        class="font-bold text-xl text-green-600 dark:text-green-400"
-                        >$3/百万token</span
-                      >
-                    </div>
-                    <div
-                      class="flex justify-between items-center py-5 px-4 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700"
-                    >
-                      <span
-                        class="font-semibold text-xl text-gray-900 dark:text-white"
-                        >神笔章节</span
-                      >
-                      <span
-                        class="font-bold text-xl text-green-600 dark:text-green-400"
-                        >$1.5/百万token</span
-                      >
+                      <div class="flex items-center justify-between mb-2">
+                        <span
+                          class="font-semibold text-lg text-gray-900 dark:text-white text-left"
+                        >{{ model.name }}</span>
+                        <div class="flex items-center gap-2">
+                          <span class="price-tag font-bold text-base bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 flex items-center px-3 py-1">
+                            <span class="text-xs font-normal mr-1">输入</span>
+                            ${{ model.official.input }}/M
+                          </span>
+                          <span class="price-tag font-bold text-base bg-red-100 text-red-600 dark:bg-red-900/30 dark:text-red-400 flex items-center px-3 py-1">
+                            <span class="text-xs font-normal mr-1">输出</span>
+                            ${{ model.official.output }}/M
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- 节省说明 -->
-              <div class="text-center py-20 max-w-3xl mx-auto">
+                <!-- 右侧：神笔AI价格 -->
                 <div
-                  class="rounded-2xl p-8 backdrop-blur-sm bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 border-2 border-orange-500 shadow-xl"
+                  class="card-hover flex-1 rounded-2xl p-6 relative transition-all duration-300 glass-effect border-2 border-green-500/50"
                 >
-                  <p
-                    class="text-xl leading-relaxed text-gray-700 dark:text-gray-300"
+                  <div
+                    class="absolute -top-3 -right-3 px-5 py-2 rounded-full text-sm font-black z-10 gradient-bg text-white shadow-lg animate-pulse"
                   >
-                    <span class="font-black text-2xl text-orange-500"
-                      >相比官方价格，神笔AI可为您节省高达80%的成本！</span
+                    平均立省{{ averageDiscount }}%
+                  </div>
+                  <div class="text-center mb-6">
+                    <h3
+                      class="text-2xl font-black mb-2 text-green-600 dark:text-green-400"
                     >
-                  </p>
+                      神笔AI价格
+                    </h3>
+                    <div
+                      class="text-sm font-medium text-green-600 dark:text-green-400"
+                    >
+                      优化后价格
+                    </div>
+                  </div>
+                  <div class="space-y-3">
+                    <div
+                      v-for="model in modelData"
+                      :key="'shenbi-' + model.name"
+                      class="py-3 px-4 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 relative"
+                    >
+                      <div class="absolute -top-2 -left-2">
+                        <span
+                          class="px-2 py-1 rounded-full text-xs font-bold gradient-bg text-white shadow-sm"
+                        >直降{{ model.discount }}%</span>
+                      </div>
+                      <div class="flex items-center justify-between mb-2">
+                        <span
+                          class="font-semibold text-lg text-gray-900 dark:text-white text-left"
+                        >{{ model.name }}</span>
+                        <div class="flex items-center gap-2">
+                          <span class="price-tag font-bold text-base bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400 flex items-center px-3 py-1">
+                            <span class="text-xs font-normal mr-1">输入</span>
+                            ${{ model.shenbi.input }}/M
+                          </span>
+                          <span class="price-tag font-bold text-base bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400 flex items-center px-3 py-1">
+                            <span class="text-xs font-normal mr-1">输出</span>
+                            ${{ model.shenbi.output }}/M
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+              </div>
           </div>
 
           <!-- 优势卡片 -->
@@ -295,10 +422,10 @@
               >
                 <!-- 优势卡片1 -->
                 <div
-                  class="rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700"
+                  class="card-hover rounded-2xl p-8 text-center transition-all duration-300 glass-effect"
                 >
                   <div
-                    class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20"
+                    class="icon-container w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20"
                   >
                     <i data-lucide="zap" class="w-8 h-8 text-blue-500"></i>
                   </div>
@@ -315,10 +442,10 @@
                 </div>
                 <!-- 优势卡片2 -->
                 <div
-                  class="rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700"
+                  class="card-hover rounded-2xl p-8 text-center transition-all duration-300 glass-effect"
                 >
                   <div
-                    class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20"
+                    class="icon-container w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20"
                   >
                     <i
                       data-lucide="shield-check"
@@ -338,10 +465,10 @@
                 </div>
                 <!-- 优势卡片3 -->
                 <div
-                  class="rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700"
+                  class="card-hover rounded-2xl p-8 text-center transition-all duration-300 glass-effect"
                 >
                   <div
-                    class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20"
+                    class="icon-container w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20"
                   >
                     <i
                       data-lucide="dollar-sign"
@@ -361,10 +488,10 @@
                 </div>
                 <!-- 优势卡片4 -->
                 <div
-                  class="rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700"
+                  class="card-hover rounded-2xl p-8 text-center transition-all duration-300 glass-effect"
                 >
                   <div
-                    class="w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-cyan-50 to-cyan-100 dark:from-cyan-900/20 dark:to-cyan-800/20"
+                    class="icon-container w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 bg-gradient-to-r from-cyan-50 to-cyan-100 dark:from-cyan-900/20 dark:to-cyan-800/20"
                   >
                     <i data-lucide="edit-3" class="w-8 h-8 text-cyan-500"></i>
                   </div>
@@ -386,7 +513,7 @@
       </main>
       <!-- 页脚 -->
       <footer
-        class="bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 py-12"
+        class="glass-effect border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 py-12"
       >
         <div class="max-w-6xl mx-auto px-6">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -398,7 +525,7 @@
                 <img
                   src="./logo.png"
                   alt="神笔AI Logo"
-                  class="h-10 w-auto object-contain mr-3"
+                  class="h-10 w-auto object-contain mr-3 transition-transform hover:scale-110"
                 />
                 <h3 class="text-2xl font-black text-gray-900 dark:text-white">
                   神笔AI
@@ -420,14 +547,14 @@
                 <a
                   href="https://shenbi.qgming.com/"
                   target="_blank"
-                  class="block text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                  class="block text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-all hover:translate-x-1"
                 >
                   神笔写作
                 </a>
                 <a
                   href="https://ai.qgming.com/v1"
                   target="_blank"
-                  class="block text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                  class="block text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 transition-all hover:translate-x-1"
                 >
                   API文档
                 </a>
@@ -445,14 +572,14 @@
                 <a
                   href="https://github.com/QuantumNous/new-api"
                   target="_blank"
-                  class="block text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-green-400 transition-colors"
+                  class="block text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-green-400 transition-all hover:translate-x-1"
                 >
                   NewAPI
                 </a>
                 <a
                   href="https://github.com/songquanpeng/one-api"
                   target="_blank"
-                  class="block text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-green-400 transition-colors"
+                  class="block text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-green-400 transition-all hover:translate-x-1"
                 >
                   OneAPI
                 </a>
@@ -461,7 +588,7 @@
           </div>
 
           <!-- 版权信息 -->
-          <div class="pt-8 text-center">
+          <div class="pt-8 text-center border-t border-gray-200 dark:border-gray-700">
             <p class="text-gray-600 dark:text-gray-500 text-sm">
               © 2025 QGMING. 保留所有权利。
             </p>
@@ -477,7 +604,88 @@
         data() {
           return {
             apiUrl: "https://ai.qgming.com/v1",
+            modelData: [
+              {
+                name: "gemini 2.5 pro",
+                official: {
+                  input: 1.25,
+                  output: 10.00
+                },
+                shenbi: {
+                  input: 0.28,
+                  output: 1.68
+                },
+                discount: 83
+              },
+              {
+                name: "gemini 2.5 flash",
+                official: {
+                  input: 0.30,
+                  output: 2.50
+                },
+                shenbi: {
+                  input: 0.14,
+                  output: 0.84
+                },
+                discount: 66
+              },
+              {
+                name: "gpt-5",
+                official: {
+                  input: 1.25,
+                  output: 10.00
+                },
+                shenbi: {
+                  input: 0.40,
+                  output: 3.20
+                },
+                discount: 68
+              },
+              {
+                name: "gpt-5 mini",
+                official: {
+                  input: 0.25,
+                  output: 2.00
+                },
+                shenbi: {
+                  input: 0.08,
+                  output: 0.64
+                },
+                discount: 68
+              },
+              {
+                name: "claude sonnet 4.5",
+                official: {
+                  input: 3.00,
+                  output: 15.00
+                },
+                shenbi: {
+                  input: 1.00,
+                  output: 5.00
+                },
+                discount: 67
+              },
+              {
+                name: "claude sonnet 4",
+                official: {
+                  input: 3.00,
+                  output: 15.00
+                },
+                shenbi: {
+                  input: 1.00,
+                  output: 5.00
+                },
+                discount: 67
+              }
+            ]
           };
+        },
+        computed: {
+          averageDiscount() {
+            return Math.round(
+              this.modelData.reduce((acc, model) => acc + model.discount, 0) / this.modelData.length
+            );
+          }
         },
         mounted() {
           // 初始化Lucide图标
@@ -495,6 +703,7 @@
           ) {
             this.enableDarkMode();
           }
+
         },
         methods: {
           detectEmbeddedEnvironment() {
@@ -536,25 +745,11 @@
           async copyApiUrl() {
             try {
               await navigator.clipboard.writeText(this.apiUrl);
-              // 显示复制成功提示
-              this.showToast("API地址已复制到剪贴板");
             } catch (err) {
               console.error("复制失败:", err);
-              this.showToast("复制失败，请手动复制");
             }
           },
-          showToast(message) {
-            // 简单的toast提示实现
-            const toast = document.createElement("div");
-            toast.className =
-              "fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50";
-            toast.textContent = message;
-            document.body.appendChild(toast);
 
-            setTimeout(() => {
-              document.body.removeChild(toast);
-            }, 3000);
-          },
         },
       }).mount("#app");
     </script>
