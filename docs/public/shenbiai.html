@@ -42,8 +42,6 @@
         border-bottom: 1px solid rgba(100, 110, 130, 0.5);
       }
 
-  
-      
       /* 增强的视觉效果 */
       .glass-effect {
         background: rgba(255, 255, 255, 0.7);
@@ -52,7 +50,6 @@
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       }
 
-  
       /* 增强的卡片悬停效果 */
       .card-hover {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -63,7 +60,6 @@
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
       }
 
-    
       /* 优化的渐变背景 */
       .gradient-bg {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -72,8 +68,13 @@
       }
 
       @keyframes gradientShift {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
       }
 
       /* 增强的按钮效果 */
@@ -84,13 +85,18 @@
       }
 
       .btn-enhanced::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 0;
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
         transition: left 0.5s;
       }
 
@@ -117,7 +123,7 @@
       }
 
       .icon-container::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 50%;
         left: 50%;
@@ -133,7 +139,6 @@
         width: 100%;
         height: 100%;
       }
-
 
       /* 平滑滚动 */
       html {
@@ -280,18 +285,14 @@
           <div class="w-full">
             <div class="max-w-6xl mx-auto px-6">
               <div class="text-center py-20">
-                <h2
-                  class="text-5xl font-black mb-6 text-gray-900"
-                >
-                  价格对比
-                </h2>
+                <h2 class="text-5xl font-black mb-6 text-gray-900">价格对比</h2>
                 <p
                   class="text-2xl max-w-3xl mx-auto leading-relaxed text-gray-700"
                 >
                   神笔AI中转API，自动负载，稳定性更高，极具性价比
                 </p>
               </div>
-              <div class="flex flex-col lg:flex-row gap-10 max-w-7xl mx-auto">
+              <div class="flex flex-col xl:flex-row gap-8 max-w-7xl mx-auto">
                 <!-- 左侧：官方价格 -->
                 <div
                   class="card-hover flex-1 rounded-2xl p-6 transition-all duration-300 glass-effect border-2 border-red-200"
@@ -302,9 +303,7 @@
                     >
                       官方价格
                     </h3>
-                    <div
-                      class="text-sm font-medium text-red-600 text-red-400"
-                    >
+                    <div class="text-sm font-medium text-red-600 text-red-400">
                       原始定价
                     </div>
                   </div>
@@ -312,18 +311,26 @@
                     <div
                       v-for="model in modelData"
                       :key="model.name"
-                      class="py-3 px-4 rounded-xl bg-red-50 bg-red-50 border border-red-200 border-red-200"
+                      class="p-4 rounded-xl bg-red-50 border border-red-200"
                     >
-                      <div class="flex items-center justify-between mb-2">
-                        <span
-                          class="font-semibold text-lg text-gray-900 text-gray-900 text-left"
-                        >{{ model.name }}</span>
-                        <div class="flex items-center gap-2">
-                          <span class="price-tag font-bold text-base bg-red-100 text-red-600 bg-red-100 text-red-400 flex items-center px-3 py-1">
+                      <div class="flex flex-col space-y-3">
+                        <!-- 第一行：模型名称 -->
+                        <div class="flex items-center">
+                          <span class="font-semibold text-base text-gray-900"
+                            >{{ model.name }}</span
+                          >
+                        </div>
+                        <!-- 第二行：输入输出价格 -->
+                        <div class="flex items-center justify-center gap-3">
+                          <span
+                            class="price-tag font-bold text-sm bg-red-100 text-red-600 flex items-center px-3 py-1"
+                          >
                             <span class="text-xs font-normal mr-1">输入</span>
                             ${{ model.official.input }}/M
                           </span>
-                          <span class="price-tag font-bold text-base bg-red-100 text-red-600 bg-red-100 text-red-400 flex items-center px-3 py-1">
+                          <span
+                            class="price-tag font-bold text-sm bg-red-100 text-red-600 flex items-center px-3 py-1"
+                          >
                             <span class="text-xs font-normal mr-1">输出</span>
                             ${{ model.official.output }}/M
                           </span>
@@ -332,14 +339,14 @@
                     </div>
                   </div>
                 </div>
-                <!-- 右侧：神笔AI价格 -->
+                <!-- 中间：神笔AI价格 -->
                 <div
                   class="card-hover flex-1 rounded-2xl p-6 relative transition-all duration-300 glass-effect border-2 border-green-500/50"
                 >
                   <div
                     class="absolute -top-3 -right-3 px-5 py-2 rounded-full text-sm font-black z-10 gradient-bg text-white shadow-lg animate-pulse"
                   >
-                    平均立省{{ averageDiscount }}%
+                    至高节省83%
                   </div>
                   <div class="text-center mb-6">
                     <h3
@@ -350,30 +357,33 @@
                     <div
                       class="text-sm font-medium text-green-600 text-green-600"
                     >
-                      优化后价格
+                      神笔价格
                     </div>
                   </div>
                   <div class="space-y-3">
                     <div
                       v-for="model in modelData"
                       :key="'shenbi-' + model.name"
-                      class="py-3 px-4 rounded-xl bg-green-50 bg-green-50 border border-green-200 border-green-200 relative"
+                      class="p-4 rounded-xl bg-green-50 border border-green-200"
                     >
-                      <div class="absolute -top-2 -left-2">
-                        <span
-                          class="px-2 py-1 rounded-full text-xs font-bold gradient-bg text-white shadow-sm"
-                        >直降{{ model.discount }}%</span>
-                      </div>
-                      <div class="flex items-center justify-between mb-2">
-                        <span
-                          class="font-semibold text-lg text-gray-900 text-gray-900 text-left"
-                        >{{ model.name }}</span>
-                        <div class="flex items-center gap-2">
-                          <span class="price-tag font-bold text-base bg-green-100 text-green-600 bg-green-100 text-green-600 flex items-center px-3 py-1">
+                      <div class="flex flex-col space-y-3">
+                        <!-- 第一行：模型名称 -->
+                        <div class="flex items-center">
+                          <span class="font-semibold text-base text-gray-900"
+                            >{{ model.name }}</span
+                          >
+                        </div>
+                        <!-- 第二行：输入输出价格 -->
+                        <div class="flex items-center justify-center gap-3">
+                          <span
+                            class="price-tag font-bold text-sm bg-green-100 text-green-600 flex items-center px-3 py-1"
+                          >
                             <span class="text-xs font-normal mr-1">输入</span>
                             ${{ model.shenbi.input }}/M
                           </span>
-                          <span class="price-tag font-bold text-base bg-green-100 text-green-600 bg-green-100 text-green-600 flex items-center px-3 py-1">
+                          <span
+                            class="price-tag font-bold text-sm bg-green-100 text-green-600 flex items-center px-3 py-1"
+                          >
                             <span class="text-xs font-normal mr-1">输出</span>
                             ${{ model.shenbi.output }}/M
                           </span>
@@ -382,8 +392,70 @@
                     </div>
                   </div>
                 </div>
+                <!-- 右侧：优惠分组价格 -->
+                <div
+                  class="card-hover flex-1 rounded-2xl p-6 relative transition-all duration-300 glass-effect border-2 border-purple-500/50"
+                >
+                  <div
+                    class="absolute -top-3 -right-3 px-5 py-2 rounded-full text-sm font-black z-10 bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg animate-pulse"
+                  >
+                    限时特惠
+                  </div>
+                  <div class="text-center mb-6">
+                    <h3 class="text-2xl font-black mb-2 text-purple-600">
+                      优惠分组
+                    </h3>
+                    <div class="text-sm font-medium text-purple-600">
+                      神笔AI价格再享3折
+                    </div>
+                  </div>
+                  <div class="space-y-3">
+                    <div
+                      v-for="model in modelData"
+                      :key="'discount-' + model.name"
+                      class="p-4 rounded-xl bg-purple-50 border border-purple-200"
+                    >
+                      <div class="flex flex-col space-y-3">
+                        <!-- 第一行：模型名称 -->
+                        <div class="flex items-center">
+                          <span class="font-semibold text-base text-gray-900"
+                            >{{ model.name }}</span
+                          >
+                        </div>
+                        <!-- 第二行：输入输出价格 -->
+                        <div class="flex items-center justify-center gap-3">
+                          <span
+                            class="price-tag font-bold text-sm bg-purple-100 text-purple-600 flex items-center px-3 py-1"
+                          >
+                            <span class="text-xs font-normal mr-1">输入</span>
+                            ${{ (model.shenbi.input * 0.3).toFixed(2) }}/M
+                          </span>
+                          <span
+                            class="price-tag font-bold text-sm bg-purple-100 text-purple-600 flex items-center px-3 py-1"
+                          >
+                            <span class="text-xs font-normal mr-1">输出</span>
+                            ${{ (model.shenbi.output * 0.3).toFixed(2) }}/M
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="mt-6 p-4 rounded-xl bg-gradient-to-r from-purple-100 to-pink-100 border border-purple-200"
+                  >
+                    <div class="text-center">
+                      <p class="text-sm font-medium text-purple-700 mb-2">
+                        <i data-lucide="gift" class="w-4 h-4 inline mr-1"></i>
+                        限时优惠活动
+                      </p>
+                      <p class="text-xs text-purple-600">
+                        神笔AI价格基础上再享3折优惠，优惠分组长期存在，相比神笔AI稳定性略有下降，但性价比极高，适合预算有限的用户。
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              </div>
+            </div>
           </div>
 
           <!-- 优势卡片 -->
@@ -572,7 +644,9 @@
           </div>
 
           <!-- 版权信息 -->
-          <div class="pt-8 text-center border-t border-gray-200 border-gray-200">
+          <div
+            class="pt-8 text-center border-t border-gray-200 border-gray-200"
+          >
             <p class="text-gray-600 text-gray-600 text-sm">
               © 2025 QGMING. 保留所有权利。
             </p>
@@ -593,100 +667,80 @@
                 name: "gemini 2.5 pro",
                 official: {
                   input: 1.25,
-                  output: 10.00
+                  output: 10.0,
                 },
                 shenbi: {
                   input: 0.28,
-                  output: 1.68
+                  output: 1.68,
                 },
-                discount: 83
               },
               {
                 name: "gemini 2.5 flash",
                 official: {
-                  input: 0.30,
-                  output: 2.50
+                  input: 0.3,
+                  output: 2.5,
                 },
                 shenbi: {
                   input: 0.14,
-                  output: 0.84
+                  output: 0.84,
                 },
-                discount: 66
               },
               {
                 name: "gpt-5",
                 official: {
                   input: 1.25,
-                  output: 10.00
+                  output: 10.0,
                 },
                 shenbi: {
-                  input: 0.40,
-                  output: 3.20
+                  input: 0.4,
+                  output: 3.2,
                 },
-                discount: 68
               },
               {
                 name: "gpt-5 mini",
                 official: {
                   input: 0.25,
-                  output: 2.00
+                  output: 2.0,
                 },
                 shenbi: {
                   input: 0.08,
-                  output: 0.64
+                  output: 0.64,
                 },
-                discount: 68
               },
               {
-                name: "claude sonnet 4.5",
+                name: "deepseek-v3.2",
                 official: {
-                  input: 3.00,
-                  output: 15.00
+                  input: 0.29,
+                  output: 0.43,
                 },
                 shenbi: {
-                  input: 1.00,
-                  output: 5.00
+                  input: 0.29,
+                  output: 0.43,
                 },
-                discount: 67
               },
-              {
-                name: "claude sonnet 4",
-                official: {
-                  input: 3.00,
-                  output: 15.00
-                },
-                shenbi: {
-                  input: 1.00,
-                  output: 5.00
-                },
-                discount: 67
-              }
-            ]
+            ],
           };
         },
         computed: {
           averageDiscount() {
             return Math.round(
-              this.modelData.reduce((acc, model) => acc + model.discount, 0) / this.modelData.length
+              this.modelData.reduce((acc, model) => acc + model.discount, 0) /
+                this.modelData.length
             );
-          }
+          },
         },
         mounted() {
           // 初始化Lucide图标
           lucide.createIcons();
-
-  
-  
         },
         methods: {
-            async copyApiUrl() {
+          async copyApiUrl() {
             try {
               await navigator.clipboard.writeText(this.apiUrl);
             } catch (err) {
               console.error("复制失败:", err);
             }
           },
-
         },
       }).mount("#app");
     </script>
