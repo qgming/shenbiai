@@ -2,28 +2,75 @@
 
 ## 快速开始
 
-- 注册并登录
-  ![注册](/images/api/login.png)
-- 控制台
-  控制台页面可以测试模型，查看余额，查看使用日志，令牌管理（key 管理），钱包重置等
-  ![控制台](/images/api/console.png)
+### 1. 注册并登录
 
-- 创建 API 密钥
-  点击添加令牌创建令牌，可以选择不同的分组，目前神笔 AI 提供 default，free，优惠这 3 个分组，默认 default 分组包括其他分组模型，选用优惠和 free 分组就只可以使用对应的模型。优惠分组提供 3 折优惠，free 分组提供免费模型
-  ![令牌](/images/api/key.png)
+首先访问神笔 AI 平台进行注册和登录。
+
+![注册登录](/images/api/login.png)
+
+### 2. 控制台功能
+
+控制台页面提供以下功能：
+
+- 测试模型
+- 查看余额
+- 查看使用日志
+- 令牌管理（API Key 管理）
+- 钱包充值
+
+![控制台](/images/api/console.png)
+
+### 3. 创建 API 密钥
+
+点击"添加令牌"按钮创建 API 密钥。神笔 AI 提供三种分组：
+
+| 分组        | 说明     | 优势               |
+| ----------- | -------- | ------------------ |
+| **default** | 默认分组 | 包含所有分组的模型 |
+| **优惠**    | 优惠分组 | 提供 3 折优惠      |
+| **free**    | 免费分组 | 提供免费模型       |
+
+> **注意：** 选择优惠和 free 分组后，只能使用对应分组的模型。
+
+![令牌管理](/images/api/key.png)
 
 ## API 文档
 
-神笔 AI 完全兼容 Openai 接口，在对应 url 处输入`https://ai.qgming.com`或者`https://ai.qgming.com/v1`即可调用
+### 接口说明
 
-一些完整调用示例：
-聊天（Chat）：https://ai.qgming.com/v1/chat/completions
-嵌入（Embedding）：https://ai.qgming.com/v1/embeddings
-模型查询：https://ai.qgming.com/v1/models
+神笔 AI 完全兼容 OpenAI 接口规范，只需将 API 地址替换为神笔 AI 的服务地址即可。
+
+**基础地址：**
+
+- `https://ai.qgming.com`
+- `https://ai.qgming.com/v1`
+
+### 接口端点
+
+| 功能     | 端点                                        | 说明         |
+| -------- | ------------------------------------------- | ------------ |
+| 聊天对话 | `https://ai.qgming.com/v1/chat/completions` | 支持对话生成 |
+| 文本嵌入 | `https://ai.qgming.com/v1/embeddings`       | 生成文本向量 |
+| 模型列表 | `https://ai.qgming.com/v1/models`           | 查询可用模型 |
 
 ## 使用示例
 
-- 神笔 AI
-  ![神笔写作](/images/api/shenbikey.png)
-- RooCode
-  ![code](/images/api/roocode.png)
+### 在神笔 AI 中使用
+
+在神笔写作平台中配置 API 密钥即可开始使用。
+
+![神笔写作配置](/images/api/shenbikey.png)
+
+### 在 RooCode 中使用
+
+在 RooCode 编辑器中配置神笔 AI 的 API 地址和密钥。
+
+![RooCode 配置](/images/api/roocode.png)
+
+## 常见问题
+
+**Q: 如何选择合适的分组？**
+A: 如果需要使用所有模型，选择 default 分组；如果希望降低成本，可选择优惠分组；如果想免费体验，可选择 free 分组。
+
+**Q: API 密钥的安全性？**
+A: 请妥善保管您的 API 密钥，不要在公开场合泄露。如有泄露，请及时在控制台删除并重新创建。
