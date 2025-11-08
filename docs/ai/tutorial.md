@@ -1,3 +1,10 @@
+---
+prev:
+  text: "产品介绍"
+  link: "/ai/introduction"
+next: false
+---
+
 # 神笔 AI 使用教程
 
 ## 快速开始

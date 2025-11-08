@@ -1,3 +1,12 @@
+---
+prev:
+  text: "产品简介"
+  link: "/software/introduction"
+next:
+  text: "写作教程"
+  link: "/software/tutorial"
+---
+
 # 基础配置
 
 ## 软件安装
@@ -37,11 +46,11 @@
 
 **配置步骤：**
 
-1. 在供应商列表中选择"自定义"
+1. 点击供应商列表右上角添加按钮
 2. 输入供应商名称
 3. 配置 API 端点（Base URL）
-4. 输入 API Key
-5. 测试连接并保存配置
+4. 输入 API Key 并保存配置
+5. 添加模型并测试连接
 
 ![添加供应商](/images/software/addprovider.png)
 

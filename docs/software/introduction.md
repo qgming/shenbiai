@@ -1,3 +1,9 @@
+---
+next:
+  text: "基础配置"
+  link: "/software/basic-config"
+---
+
 # 神笔写作 - 专为网文创作设计的 AI 写作助手
 
 ## 产品简介

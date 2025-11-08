@@ -1,3 +1,10 @@
+---
+prev: false
+next:
+  text: "使用教程"
+  link: "/ai/tutorial"
+---
+
 # 神笔 AI - 新一代大模型中转服务
 
 ## 产品简介

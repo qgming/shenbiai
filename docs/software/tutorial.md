@@ -1,3 +1,10 @@
+---
+prev:
+  text: "基础配置"
+  link: "/software/basic-config"
+next: false
+---
+
 # 写作教程
 
 ## 界面介绍

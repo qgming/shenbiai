@@ -31,8 +31,8 @@ export default defineConfig({
           text: '什么是神笔写作',
           items: [
             { text: '产品简介', link: '/software/introduction#产品简介' },
-             { text: '核心特性', link: '/software/introduction#核心特性' },
-              { text: '软件特色', link: '/software/introduction#软件特色' }
+            { text: '核心特性', link: '/software/introduction#核心特性' },
+            { text: '软件特色', link: '/software/introduction#软件特色' }
           ]
         },
         {
@@ -66,9 +66,9 @@ export default defineConfig({
           text: '使用教程',
           items: [
             { text: '快速开始', link: '/ai/tutorial#快速开始' },
-           { text: 'API 文档', link: '/ai/tutorial#API 文档' },
+            { text: 'API 文档', link: '/ai/tutorial#API 文档' },
             { text: '使用示例', link: '/ai/tutorial#使用示例' },
-           { text: '常见问题', link: '/ai/tutorial#常见问题' }
+            { text: '常见问题', link: '/ai/tutorial#常见问题' }
           ]
         }
       ],
