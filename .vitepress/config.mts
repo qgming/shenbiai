@@ -50,17 +50,18 @@ export default defineConfig({
         {
           text: '什么是神笔 AI',
           items: [
-            { text: '产品概述', link: '/ai/introduction#产品概述' },
-            { text: '功能特性', link: '/ai/introduction#功能特性' },
-            { text: '适用场景', link: '/ai/introduction#适用场景' },
-            { text: '模型价格', link: '/ai/introduction#模型价格' }
+            { text: '产品简介', link: '/ai/introduction#产品简介' },
+            { text: '核心优势', link: '/ai/introduction#核心优势' },
+            { text: '主要特点', link: '/ai/introduction#主要特点' },
+            { text: '模型价格', link: '/ai/introduction#模型价格' },
+            { text: '适用场景', link: '/ai/introduction#适用场景' }
           ]
         },
         {
           text: '使用教程',
           items: [
             { text: '快速开始', link: '/ai/tutorial#快速开始' },
-           { text: 'API文档', link: '/ai/tutorial#API文档' },
+           { text: 'API 文档', link: '/ai/tutorial#API 文档' },
             { text: '使用示例', link: '/ai/tutorial#使用示例' },
            { text: '常见问题', link: '/ai/tutorial#常见问题' }
           ]
