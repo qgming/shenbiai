@@ -30,7 +30,9 @@ export default defineConfig({
         {
           text: '什么是神笔写作',
           items: [
-            { text: '产品概述', link: '/software/introduction' }
+            { text: '产品简介', link: '/software/introduction#产品简介' },
+             { text: '核心特性', link: '/software/introduction#核心特性' },
+              { text: '软件特色', link: '/software/introduction#软件特色' }
           ]
         },
         {
