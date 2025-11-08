@@ -4,13 +4,34 @@ next:
   link: "/software/basic-config"
 ---
 
-# 神笔写作 - 专为网文创作设计的 AI 写作助手
+# 神笔写作
+
+专为网文创作设计的 AI 写作助手
 
 ## 产品简介
 
 神笔写作是一款专为网络小说创作者设计的桌面端 AI 辅助写作软件。我们利用先进的大语言模型技术，为网文作者提供智能化的创作支持，从情节构思到章节创作，全方位提升您的写作效率。
 
 **核心定位**：完全免费、数据本地存储、支持自定义 API 和提示词的网文创作工具。
+
+<div class="download-button" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 16px 24px; border-radius: 12px; margin: 20px 0; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); text-align: center; transition: all 0.3s ease; cursor: pointer; border: none; display: inline-block;">
+
+<a href="/changelog/index" style="color: white; text-decoration: none; font-weight: 600; font-size: 18px; display: block;">
+  🚀 立即下载神笔写作
+</a>
+
+</div>
+
+<style>
+.download-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.download-button a:hover {
+  text-decoration: none;
+}
+</style>
 
 ![首页](/images/software/home.png)
 

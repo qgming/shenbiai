@@ -47,7 +47,20 @@ export default defineConfig({
         {
           text: '写作教程',
           items: [
-            { text: '使用教程', link: '/software/tutorial' }
+            { text: '书籍管理', link: '/software/tutorial#书籍管理' },
+            { text: '写作界面', link: '/software/tutorial#写作界面' },
+            { text: '写作流程', link: '/software/tutorial#写作流程' },
+            { text: '常见问题', link: '/software/tutorial#常见问题' }
+          ]
+        },
+         {
+          text: '更多内容',
+          items: [
+            { text: '提示词管理', link: '/software/soft-tool#提示词管理' },
+            { text: '应用中心', link: '/software/soft-tool#应用中心' },
+            { text: '用量统计', link: '/software/soft-tool#用量统计' },
+            { text: '数据设置', link: '/software/soft-tool#数据设置' },
+            { text: '软件更新', link: '/software/soft-tool#软件更新' }
           ]
         }
       ],
@@ -78,7 +91,7 @@ export default defineConfig({
           items: [
             { text: '最新版本', link: '/changelog/#最新版本' },
             { text: '历史版本', link: '/changelog/#历史版本' },
-            { text: '版本规划', link: '/changelog/#版本规划' }
+            { text: '常见问题', link: '/changelog/#常见问题' }
           ]
         }
       ]

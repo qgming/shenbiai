@@ -1,22 +1,57 @@
-# 更新日志
+# 更新日志与下载
 
-这里将记录神笔写作软件的版本更新历史。
+欢迎来到神笔写作软件的更新日志与下载页面！这里记录了所有版本的更新历史，并提供相应的下载链接。
 
 ## 最新版本
 
-- 版本号：v1.0.0
-- 发布日期：YYYY-MM-DD
-- 主要更新内容
+<div class="download-buttons" style="display: flex; gap: 1rem; margin: 1rem;">
+
+<a href="https://pan.quark.cn/s/442b149ff2b5" class="download-button" style="background: #1890ff; color:#ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-block;">
+  夸克网盘
+</a>
+
+<a href="https://github.com/shenbiai/shenbiai/releases/latest" class="download-button" style="background: #24292f; color:#ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-block;">
+  GitHub
+</a>
+
+</div>
 
 ## 历史版本
 
-### v0.9.0 <Badge type="warning" text="beta" />
+### v1.0.0 <Badge type="tip" text="稳定版" />
 
-- 发布日期：YYYY-MM-DD
-- 更新内容
+**发布日期：** 2025-11-08
 
-## 版本规划
+**更新内容：**
 
-- 即将推出的功能
-- 开发计划
-- 功能建议
+- 优化了功能体验
+- 修复了一些 bug
+- 优化了启动速度
+
+[📥 下载 v1.0.0](https://pan.quark.cn/s/442b149ff2b5)
+
+### v0.9.2 <Badge type="warning" text="beta" />
+
+**发布日期：** 2025-10-20
+
+**更新内容：**
+
+- 首次公开发布
+- 基础写作功能
+- AI 辅助创作
+
+[📥 下载 v0.9.2](https://pan.quark.cn/s/442b149ff2b5)
+
+## 常见问题
+
+**Q: 如何下载最新版本？**
+
+A: 点击页面顶部的"下载"按钮即可获取最新版本。
+
+**Q: 安装过程中遇到问题怎么办？**
+
+A: 请检查系统要求是否满足，或联系我们的技术支持。
+
+**Q: 如何检查更新？**
+
+A: 软件内置检查更新功能，在设置中手动检查更新即可。
