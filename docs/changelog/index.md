@@ -10,7 +10,7 @@
   夸克网盘
 </a>
 
-<a href="https://github.com/shenbiai/shenbiai/releases/latest" class="download-button" style="background: #24292f; color:#ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-block;">
+<a href="https://github.com/qgming/shenbiai/releases/tag/%E7%A5%9E%E7%AC%94%E5%86%99%E4%BD%9C" class="download-button" style="background: #24292f; color:#ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; display: inline-block;">
   GitHub
 </a>
 
@@ -20,13 +20,11 @@
 
 ### v1.0.0 <Badge type="tip" text="稳定版" />
 
-**发布日期：** 2025-11-08
+**发布日期：** -
 
 **更新内容：**
 
-- 优化了功能体验
-- 修复了一些 bug
-- 优化了启动速度
+- 开发中
 
 [📥 下载 v1.0.0](https://pan.quark.cn/s/442b149ff2b5)
 
