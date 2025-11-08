@@ -4,6 +4,8 @@
 
 下载神笔写作安装包，按照提示完成安装过程。
 
+![安装](/images/software/install.png)
+
 ## 系统要求
 
 - Windows 10/11 操作系统
@@ -40,6 +42,8 @@
 3. 配置 API 端点（Base URL）
 4. 输入 API Key
 5. 测试连接并保存配置
+
+![添加供应商](/images/software/addprovider.png)
 
 ## 配置功能模型
 
