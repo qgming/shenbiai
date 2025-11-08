@@ -38,7 +38,10 @@ export default defineConfig({
         {
           text: '基础配置',
           items: [
-            { text: '软件安装与配置', link: '/software/basic-config' }
+            { text: '软件安装', link: '/software/basic-config#软件安装' },
+            { text: '配置供应商', link: '/software/basic-config#配置供应商' },
+            { text: '配置功能模型', link: '/software/basic-config#配置功能模型' },
+            { text: '常见问题', link: '/software/basic-config#常见问题' }
           ]
         },
         {
