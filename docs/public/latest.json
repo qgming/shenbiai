@@ -17,15 +17,15 @@
       "title": "🎉公告",
       "content": "神笔写作为免费AI网文辅助写作软件\n1. 支持完全自定义供应商及模型；\n2. 支持完全自定义写作相关提示词；\n3. 书籍等写作数据，密钥等配置数据完全保存在本地；\n\n如果你有任何建议或意见，欢迎关注公众号：\n微信公众号：极点维度\n官方网站：https://shenbi.qgming.com",
       "link": "https://shenbi.qgming.com",
-      "releaseTime": "2025-10-1",
+      "releaseTime": "2025-11-1",
       "isPinned": true
     },
     {
       "id": 2,
-      "title": "✨神笔AI中转服务上线",
-      "content": "神笔AI中转API服务现已上线！专为神笔写作软件优化，提供更优质稳定的AI接口服务。\n\n🚀 核心优势：\n• 自动负载均衡，确保服务稳定运行\n• 99.9%可用性保障，创作不中断\n• 相比官方价格，平均节省70%成本\n• 专属调试优化，写作效果更佳\n\n📊 支持模型：\n• Gemini 2.5 Pro/Flash（最高立省83%）\n• GPT-5系列（最高立省68%）\n• Claude Sonnet 4/4.5（最高立省67%）\n\n🔗 快速体验：\nAPI地址：https://ai.qgming.com/v1\n控制台：https://ai.qgming.com/console",
-      "link": "https://ai.qgming.com",
-      "releaseTime": "2025-10-19",
+      "title": "✨ 交流社区",
+      "content": "神笔写作正在开发中，欢迎加入社区\n\nQQ群：685556172\n腾讯频道：神笔写作\n微信公众号：极点维度\n\n欢迎提出宝贵的意见和建议！",
+      "link": "https://qun.qq.com/universal-share/share?ac=1&authKey=Cpom%2FehYc%2BOJTpTfblp9imsYNiazDxJ1qtvlM%2B0uDjI%2BX2vqzg8Y5bF9XXThj%2F8w&busi_data=eyJncm91cENvZGUiOiI2ODU1NTYxNzIiLCJ0b2tlbiI6ImRscklKU1BCcGFSeXRIb1czejZzRlRDTkN2b29qQVJSYUpjTExyNERSanF4T1ZvZ001V1A1OHZSZzQ2OVQ3ek8iLCJ1aW4iOiIzMTY0NTIwNzgxIn0%3D&data=aPU4qHkX06rIRmP6EJgO-5-Xn1-Dg7P5Xfy0VA1jZror7UeZdbZXP7lNyDTUPra7PTCx1Ey3gMAFAflblzn1SA&svctype=4&tempid=h5_group_info",
+      "releaseTime": "2025-11-10",
       "isPinned": false
     }
   ]
